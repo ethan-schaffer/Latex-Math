@@ -1,0 +1,121 @@
+% !TEX TS-program = pdflatex
+% !TEX encoding = UTF-8 Unicode
+
+% This is a simple template for a LaTeX document using the "article" class.
+% See "book", "report", "letter" for other types of document.
+
+\documentclass[11pt]{article} % use larger type; default would be 10pt
+
+\usepackage[utf8]{inputenc} % set input encoding (not needed with XeLaTeX)
+
+%%% Examples of Article customizations
+% These packages are optional, depending whether you want the features they provide.
+% See the LaTeX Companion or other references for full information.
+
+%%% PAGE DIMENSIONS
+\usepackage{geometry} % to change the page dimensions
+\geometry{a4paper} % or letterpaper (US) or a5paper or....
+% \geometry{margin=2in} % for example, change the margins to 2 inches all round
+% \geometry{landscape} % set up the page for landscape
+%   read geometry.pdf for detailed page layout information
+
+\usepackage{graphicx} % support the \includegraphics command and options
+
+% \usepackage[parfill]{parskip} % Activate to begin paragraphs with an empty line rather than an indent
+
+%%% PACKAGES
+\usepackage{booktabs} % for much better looking tables
+\usepackage{color} % Added by me
+\usepackage{array} % for better arrays (eg matrices) in maths
+\usepackage{paralist} % very flexible & customisable lists (eg. enumerate/itemize, etc.)
+\usepackage{verbatim} % adds environment for commenting out blocks of text & for better verbatim
+\usepackage{subfig} % make it possible to include more than one captioned figure/table in a single float
+% These packages are all incorporated in the memoir class to one degree or another...
+
+%%% HEADERS & FOOTERS
+\usepackage{fancyhdr} % This should be set AFTER setting up the page geometry
+\pagestyle{fancy} % options: empty , plain , fancy
+\renewcommand{\headrulewidth}{0pt} % customise the layout...
+\lhead{}\chead{}\rhead{}
+\lfoot{}\cfoot{\thepage}\rfoot{}
+
+%%% SECTION TITLE APPEARANCE
+\usepackage{sectsty}
+\allsectionsfont{\sffamily\mdseries\upshape} % (See the fntguide.pdf for font help)
+% (This matches ConTeXt defaults)
+
+%%% ToC (table of contents) APPEARANCE
+\usepackage[nottoc,notlof,notlot]{tocbibind} % Put the bibliography in the ToC
+\usepackage[titles,subfigure]{tocloft} % Alter the style of the Table of Contents
+\renewcommand{\cftsecfont}{\rmfamily\mdseries\upshape}
+\renewcommand{\cftsecpagefont}{\rmfamily\mdseries\upshape} % No bold!
+
+%%% END Article customizations
+
+%%% The "real" document content comes below... %%%
+
+\title{Six Color Theorem}
+\author{Ethan Schaffer}
+\date{Due 10/11/16}
+
+\begin{document}
+\maketitle
+
+\section{Problem}
+Prove that the chromatic number for a planar graph is never more than 6.
+
+\section{Solution}
+To solve this problem, I used what I learned from 4.7.1 and 4.7.5. 
+\subsection*{ 4.5.1 What is $\chi$($K_n$)?}
+$\chi$$(K_n)$  is always equal to n. We know this because $\chi$$(K_n)$ only applies to complete graphs. 
+For any complete graph, we know that every point is connnect to every other point. 
+For instance, on a $K_5$ graph, there are 5 points, each connected to every other point. 
+Because the $\chi$ of any number is the number of ``colors'' which would be used to color each point so that it does not touch any point of the same color.
+However, on a graph such as $K_5$, every point would need to have it's own color. 
+
+\subsection*{ 4.7.1 Use E$\leq$3V-6 to show that a planar graph must always have a vertex of degree 5 or less.}
+We will agebraically prove this using our knowledge of relations between edges, faces, and the sum of the degrees of the vertices (to be denoted $D_V$).
+We know that $D_V$ is equal to two times the number of edges, as we proved earlier this year. 
+Therefore, we can say that $D_V$=2E. If we substitute $D_V$ into our equation, we find that $D_V$ = 2(3V-6), or:
+\begin{displaymath}D_V \leq 6V-12\end{displaymath}
+We also know that $D_V$ $\leq$6V. 
+We know this because when all vertices are of degree p, the sum of the degrees of the vertices can also be expressed as V*p.
+In the case of this planar graph, p must be at least 6. If p were 5, then our graph would have a vertex of degree 5 or less.
+So, we know that $K_V$ must be equal to 6V. If we plug 6V into our equation, we find that  
+\begin{displaymath}6V \leq 6V-12\end{displaymath}
+This simply doesn't work. We can cancel out the 6V terms, and be left with 0 $\leq$ -12, which is false. 
+Because of this, we know that it is impossible for every point on the planar graph to be of degree 6 more. 
+Therefore, it must be of degree 5 or less.
+
+\subsection*{Prove that the chromatic number for a planar graph is never more than 6.}
+When we start to think about any planar graph \textit{g}, one of the most important steps is to try to simplify it. 
+In this case, that is being done by finding the \textit{dual} of graph \textit{g}.
+The dual of \textit{g} will be referred to as \textit{g'}.
+\\
+Let \textit{g'} be the smallest planar graph that fails the 6 color theorem. 
+If we are to look at \textit{g'}, we know that we can remove a vertex of degree 5 of less (to be called \textit{$g'_a$}. 
+When we do this, we can color in the whole of \textit{g'}. 
+After all, \textit{g'} is the smallest graph that fails the six color theorem, so anything smaller must be colorable. 
+Once we have done this, we can add \textit{$g'_a$} back into the graph. 
+We can then color it. Even if all five adjacent vertices to \textit{$g'_a$} are their own unique colors, we can still color \textit{$g'_a$} as the sixth color we are using. 
+
+
+\section{Analysis}
+While working on this problem, I came to an interesting question. I was able to prove in 4.7.1 that a planar graph must always have a vertex of degree 5 or less. 
+I already knew that by removing a vertex from any planar graph, that graph is still planar. 
+So, I reasoned that we could remove the vertex that is degree 5 or less, and another would \textbf{have} to exist somewhere else.
+If I were to repeat this pattern on any planar graph, I would always be able to find another vertex of degree 5 or less. At first, I thought this must have been a lapse of logic on my part. 
+I had seen planar graphs that had vertices of degrees 6 or even more, so I knew I was missing something. 
+\\
+Eventually, I realized that when I remove the vertex of degree 5 or less, I also remove the edges connected to it. This lowers the degree of every vertex adjacent to that one by one. 
+So, I had accidentally proven that at least one vertex of degree 6 is adjacent to a vertex of degree 5. 
+
+\section{Status}
+I feel like I understand this problem very well. Not only was I able to prove the siz color theorem, I was also able to prove other interesting things about planar graphs.
+
+\section{MVP}
+My MVP for this problem is the internet. I had to look up a lot of \LaTeX, and google helped me a lot with that. As for the math itself, the article was also very helpful. 
+The website \textit{\underline{\textcolor{blue}{http://people.qc.cuny.edu/faculty/christopher.hanusa/courses/634sp11/}}}  
+\\ %cut web link in half to fit on two pages
+\textit{\underline{\textcolor{blue}{Documents/634ch8-2.pdf}}} was also very helpful for me. 
+\end{document}
