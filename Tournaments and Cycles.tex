@@ -153,12 +153,14 @@ In figure 1, we have begun to draw a tournament. However, we have to make it int
 \draw (3, -2) node {Fig. 3};
 \end{tikzpicture}
 \\
-Here, we have drawn $\overline{AD}$ and $\overline{A'D'}$. No matter which team we have win, we create a directed 3 cycle. This concept works for larger shapes as well. For a directed \textit{n} cycle, we can always connect two points which are adjacent to the same point. If we connect it with one result, we have created a directed 3 cycle. If we have to opposite team win, we have created a directed \textit{n-1} cycle, which we can then apply to same technique on. 
+Here, we have drawn $\overline{AD}$ and $\overline{A'D'}$. No matter which team we have win, we create a directed 3 cycle. This concept works for larger shapes as well. For a directed \textit{n} cycle, we can always connect two points which are adjacent to the same point. If we connect it with one result, we have created a directed 3 cycle. If we have to opposite team win, we have created a directed \textit{n-1} cycle, which we can then apply to same technique on. This proves that a directed cycle graph is intransitive, because the definition of an intransitive graph is any graph with a directed 3 cycle. 
+\\
+By  this same definition, we know that if a graph is intransitive then it. contains a directed 3 cycle. Therefore, that graph contains a directed cycle. As such, I have proven that a tournament is intransitive if and only if it contains a directed cycle.
 
 \section{Analysis}
 This problem was very interesting, and tournaments have been a cool way to apply graph theory. I hope we will talk about brackets soon - they seem very interesting. 
 \section{Status}
 I feel like I understand this problem very well, and am excited to prove more cool things about tournaments. 
 \section{MVP}
-I have no MVP.
+My MVP for this problem is Pranathi, who reminded me that we had to prove if and only if, and not just if. (If that makes sense)
 \end{document}
