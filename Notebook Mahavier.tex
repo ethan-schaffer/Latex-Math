@@ -25,6 +25,7 @@
 
 %%% PACKAGES
 \usepackage{tikz}
+\usepackage{pgfplots}
 \usepackage{booktabs} % for much better looking tables
 \usepackage{array} % for better arrays (eg matrices) in maths
 \usepackage{paralist} % very flexible & customisable lists (eg. enumerate/itemize, etc.)
@@ -59,7 +60,44 @@
 \date{Due 10/13/2016} % Activate to display a given date or no date (if empty),
          % otherwise the current date is printed 
 \newcommand\tab[1][1cm]{\hspace*{#1}}
-
+\newcommand\unitcircle{
+\draw[step=1cm,gray,very thin] (-3,-3) grid (3,3); %grid body
+\draw[thick, dashed] (-4,0) -- (0,0); %grid line
+\draw[thick, dashed] (0,-4) -- (0,0); %grid line
+\draw[thick, dashed] (0,0) -- (4,0) node[anchor=north west] {x}; %axis
+\draw[thick, dashed] (0,0) -- (0,4) node[anchor=south east] {y}; %axis
+\draw [thick] (0,0) circle (2cm);
+\draw [dashed] (-1.4,-1.4) -- (1.4, 1.4);
+\draw [dashed] (-1.4,1.4)--(1.4,-1.4);
+\draw [dashed] (-1, -1.73) -- (1, 1.73);
+\draw [dashed] (1, -1.73) -- (-1, 1.73);
+\draw [dashed] (-1.73, -1) -- (1.73, 1);
+\draw [dashed] (1.73, -1) -- (-1.73, 1);
+\draw (1.5, 2.5) node [rotate=60] {($\frac{1}{2}, \frac{\sqrt{3}}{2}$)};
+\draw (2.5, 1.5) node [rotate=30] {($\frac{\sqrt{3}}{2}, \frac{\sqrt{1}}{2}$)};
+\draw (-1.75, -2.75) node [rotate=60] {($-\frac{1}{2}, -\frac{\sqrt{3}}{2}$)};
+\draw (-2.75, -1.5) node [rotate=30] {($-\frac{\sqrt{3}}{2}, -\frac{\sqrt{1}}{2}$)};
+\draw (1.5, -2.5) node [rotate=-60] {($\frac{\sqrt{3}}{2}, -\frac{1}{2}$)};
+\draw (2.5, -1.5) node [rotate=-30] {($\frac{1}{2}, -\frac{\sqrt{3}}{2}$)};
+\draw (-1.5, 2.5) node [rotate=-60] {($-\frac{\sqrt{3}}{2}, \frac{1}{2}$)};
+\draw (-2.5, 1.5) node [rotate=-30] {($-\frac{1}{2}, \frac{\sqrt{3}}{2}$)};
+\draw (2.25, 2.25) node[rotate=45] {($\frac{\sqrt{2}}{2}$, $\frac{\sqrt{2}}{2}$)};
+\draw (-2.25,2.25) node[rotate=-45] {($-\frac{\sqrt{2}}{2}$, $\frac{\sqrt{2}}{2}$)};
+\draw (2.25,-2.25) node[rotate=-45] {($\frac{\sqrt{2}}{2}$, $-\frac{\sqrt{2}}{2}$)};
+\draw (-2.25,-2.25) node[rotate=45] {($-\frac{\sqrt{2}}{2}$, $-\frac{\sqrt{2}}{2}$)};
+\draw(-.25, -2.5) node[rotate=90] {(0,-1)};
+\draw(2.5, -.25) node {(1,0)};
+\draw(.25, 2.5) node[rotate=90] {(0,1)};
+\draw(-2.5, 0.25) node {(-1,0)};
+}
+\newcommand\unitcirclenolines{
+\draw[step=1cm,gray,very thin] (-2,-2) grid (2,2); %grid body
+\draw[thick, dashed] (-2,0) -- (0,0); %grid line
+\draw[thick, dashed] (0,-2) -- (0,0); %grid line
+\draw[thick, dashed] (0,0) -- (2,0) node[anchor=north west] {x}; %axis
+\draw[thick, dashed] (0,0) -- (0,2) node[anchor=south east] {y}; %axis
+\draw [thick] (0,0) circle (1cm);
+}
 \begin{document}
 \maketitle
 
@@ -67,9 +105,7 @@
 
 \end{comment}
 
-\textbf{Assignment 1: Problems 1-13}
-\\
-All units circle graphs are labelled in the counter-clockwise direction
+\large{All units circle graphs are labelled in the counter-clockwise direction}
 
 \textbf{Definition 1. The unit circle is the circle centered at the origin and of radius one}
 \section{Problem 1}
@@ -185,7 +221,7 @@ to the radius of the circle.\\
 %Text Here
 For the above figure, we know that the radian measure is equal to $\frac{Arc Length}{radius}$. 
 We can look up the arc length in our solution to problem 3.2.
-In this case, that is $\frac{\frac{\pi}{4}}{1}$, which is simply \textbf{$\frac{\pi}{4}$}.
+In this case, that is $\frac{\pi}{4}$/1, which is simply \textbf{$\frac{\pi}{4}$}.
 \\
 \begin{tikzpicture}
 \draw[thick, <->] (0,-2) -- (0,2); \draw[thick, <->] (-2,0) -- (2,0); %axes
@@ -198,7 +234,7 @@ In this case, that is $\frac{\frac{\pi}{4}}{1}$, which is simply \textbf{$\frac{
 %Text Here
 For the above figure, we know that the radian measure is equal to $\frac{Arc Length}{radius}$. 
 We can look up the arc length in our solution to problem 3.2.
-In this case, that is $\frac{\frac{\pi}{2}}{2}$, which \textit{also} equal to \textbf{$\frac{\pi}{4}$}.
+In this case, that is $\frac{\pi}{2}$/2, which \textit{also} equal to \textbf{$\frac{\pi}{4}$}.
 Based on this, we can actually conclude that the radius of a circle does not affect the radian measurement of any angle. 
 This is just like how the radius of a circle does not affect it's degree measure.
 
@@ -236,7 +272,7 @@ measure $\theta$ degrees.
 \section{Problem 6}
 \textit{Determine the degree measure of each angle in the previous illustration}
 \\
-\tab We have already shown that both angles in the previous illustration have a measure of $\frac{\pi}{4}$. So, we know that these angles must be 'equal' to one another, and must work for our formula $degrees_\theta = \frac{360*radians_\theta}{2\pi}$. This equation tells us that \textbf{$degrees_\theta$ = 45$^{\circ}$}. Based on what I already know about triangles, this makes sense. 
+\tab We have already shown that both angles in the previous illustration have a measure of $\frac{\pi}{4}$. So, we know that these angles must be equal to one another, and must work for our formula $degrees_\theta = \frac{360*radians_\theta}{2\pi}$. This equation tells us that \textbf{$degrees_\theta$ = 45$^{\circ}$}. Based on what I already know about triangles, this makes sense. 
 
 \section{Problem 7}
 \textit{Graph the unit circle, and the angle in standard position whose measure is 150 degrees.}
@@ -274,7 +310,7 @@ measure $\theta$ degrees.
 \end{tikzpicture}
 \\
 \textit{What are the xy-coordinates of the point that is the intersection of the terminal side of this angle with the unit circle?}\\
-\tab The xy-coordinates in question have been labelled above. .707 is the square root of $\frac{1}{2}$. This is significant because on the isosceles triange formed by the angle and the thin dashed line. We know that the hypotenuse must be of length 1, because it is the radius of our units circle. We also know that each angle must be equal to one another. So, each leg must also be equal to the other. This means that when we apply the \textbf{Pythaorean Theorem}, we find that each leg of the triangle must be of length $\sqrt{\frac{1}{2}}$.  That evaulates to .707, so we know that the x and y offsets, and with them our coordinate, must be at (.707, .707)
+\tab The xy-coordinates in question have been labelled above. We know that the hypotenuse must be of length 1, because it is the radius of our units circle. We also know that each angle must be equal to one another. So, each leg must also be equal to the other. This means that when we apply the \textbf{Pythaorean Theorem}, we find that each leg of the triangle must be of length $\sqrt{\frac{1}{2}}$.  In another form (that we will use from now on), we see that $\sqrt{\frac{1}{2}}$ = $\frac{\sqrt{2}}{2}$.
 
 \section{Problem 9}
 \textit{Graph the unit circle, and the angle in standard position that has measure $\frac{\pi}{3}$ radians.} \\
@@ -288,8 +324,8 @@ measure $\theta$ degrees.
 \draw [thick, ->] (0,0) -- (1,2);
 \draw [dashed] (.5, .866) -- (.5, 0);
 \draw (.5, .866) -- (1, 0);
-\draw(-.3, 1) node {Point B};
-\draw (.5, -.25) node {Point A};
+\draw(-.3, 1.25) node {Point B};
+\draw (.75, -.25) node {Point A};
 
 \draw (1.25, 1) node {$1\over 2$, $\sqrt{3} \over 2$};
 \end{tikzpicture}
@@ -344,10 +380,7 @@ This is actually the $definition_?$ of radian measure.
 \\ \textit{As measured in revolutions per second?}
 \\
 \tab The speed of the unicycle is $\frac{2}{3}$ of a revolution per second.
-\newpage
 
-\textbf{Assignment 2: Problems 14-17, 19-21}
-\\
 \section{Problem 14}
 Given an angle of degree measure 270, determine the radian measure of the angle.
 \tab The formula we already found can be applied here. 
@@ -382,10 +415,10 @@ Locate the point on the unit circle so that the angle formed by the radius of th
 \draw (.25,0) arc(0:-135:.25);
 \draw (-.3, -.3) node {$_\theta$};
 \end{tikzpicture}
-\\The measure of this angle in degrees is -135 degrees. This can be found through application of the formula.
+\\The measure of this angle in degrees is -135 degrees. This can be found through application of the formula we found earlier.
 
 \section{Problem 17}
-\textit{Given an angle of degree measure -405, determine the radian measure of this angle.} \\
+\textit{Given an angle of degree measure} -405, \textit{determine the radian measure of this angle.} \\
 \tab The radian measure of the above angle, based on the formula, is $\frac{9\pi}{4}$ radians.
 
 \section{Thank God We Get to Skip Problem 18}
@@ -419,31 +452,28 @@ Determine the coordinates in the xy-plane of each point on the unit circle whose
 \section{Problem 20}
 Determine the coordinates in the xy-plane of each point on the unit circle such that the angle that is in standard position with terminal side containing the point has radian measure of an integer multiple of $\frac{\pi}{6}$.\\
 \begin{tikzpicture}
-\draw[step=1cm,gray,very thin] (-2,-2) grid (2,2); %grid body
-\draw[thick, dashed] (-2,0) -- (0,0); %grid line
-\draw[thick, dashed] (0,-2) -- (0,0); %grid line
-\draw[thick, dashed] (0,0) -- (2,0) node[anchor=north west] {x}; %axis
-\draw[thick, dashed] (0,0) -- (0,2) node[anchor=south east] {y}; %axis
-
-\draw [thick] (0,0) circle (1cm);
-\draw [dashed] (-.5, -.866) -- (.5, .866);
-\draw [dashed] (.5, -.866) -- (-.5, .866);
-\draw [dashed] (-.866, -.5) -- (.866, .5);
-\draw [dashed] (.866, -.5) -- (-.866, .5);
-
-\draw (.75, 1.5) node [rotate=60] {$\frac{\sqrt{3}}{2}, \frac{1}{2}$};
-\draw (1.5, .75) node [rotate=30] {$\frac{1}{2}, \frac{\sqrt{3}}{2}$};
-\draw (-1, -1.5) node [rotate=60] {$-\frac{\sqrt{3}}{2}, -\frac{1}{2}$};
-\draw (-1.75, -1) node [rotate=30] {$-\frac{1}{2}, -\frac{\sqrt{3}}{2}$};
-\draw (1, -1.5) node [rotate=-60] {$\frac{\sqrt{3}}{2}, -\frac{1}{2}$};
-\draw (1.75, -1) node [rotate=-30] {$\frac{1}{2}, -\frac{\sqrt{3}}{2}$};
-\draw (-1, 1.5) node [rotate=-60] {$-\frac{\sqrt{3}}{2}, \frac{1}{2}$};
-\draw (-1.75, 1) node [rotate=-30] {$-\frac{1}{2}, \frac{\sqrt{3}}{2}$};
-
-\draw(.25, -1.5) node [rotate=-90] {(0,-1)};
-\draw(1.5, 0) node {(1,0)};
-\draw(.25, 1.5) node [rotate=90] {(0,1)};
-\draw(-1.5, 0.25) node {(-1,0)};
+\draw[step=1cm,gray,very thin] (-3,-3) grid (3,3); %grid body
+\draw[thick, dashed] (-4,0) -- (0,0); %grid line
+\draw[thick, dashed] (0,-4) -- (0,0); %grid line
+\draw[thick, dashed] (0,0) -- (4,0) node[anchor=north west] {x}; %axis
+\draw[thick, dashed] (0,0) -- (0,4) node[anchor=south east] {y}; %axis
+\draw [thick] (0,0) circle (2cm);
+\draw [dashed] (-1, -1.73) -- (1, 1.73);
+\draw [dashed] (1, -1.73) -- (-1, 1.73);
+\draw [dashed] (-1.73, -1) -- (1.73, 1);
+\draw [dashed] (1.73, -1) -- (-1.73, 1);
+\draw (1.5, 2.5) node [rotate=60] {($\frac{1}{2}, \frac{\sqrt{3}}{2}$)};
+\draw (2.5, 1.5) node [rotate=30] {($\frac{\sqrt{3}}{2}, \frac{\sqrt{1}}{2}$)};
+\draw (-1.75, -2.75) node [rotate=60] {($-\frac{1}{2}, -\frac{\sqrt{3}}{2}$)};
+\draw (-2.75, -1.5) node [rotate=30] {($-\frac{\sqrt{3}}{2}, -\frac{\sqrt{1}}{2}$)};
+\draw (1.5, -2.5) node [rotate=-60] {($\frac{\sqrt{3}}{2}, -\frac{1}{2}$)};
+\draw (2.5, -1.5) node [rotate=-30] {($\frac{1}{2}, -\frac{\sqrt{3}}{2}$)};
+\draw (-1.5, 2.5) node [rotate=-60] {($-\frac{\sqrt{3}}{2}, \frac{1}{2}$)};
+\draw (-2.5, 1.5) node [rotate=-30] {($-\frac{1}{2}, \frac{\sqrt{\sqrt{3}}}{2}$)};
+\draw(-.25, -2.5) node[rotate=90] {(0,-1)};
+\draw(2.5, -.25) node {(1,0)};
+\draw(.25, 2.5) node[rotate=90] {(0,1)};
+\draw(-2.5, 0.25) node {(-1,0)};
 \end{tikzpicture}
 \\
 \\
@@ -515,28 +545,18 @@ C($\frac{4\pi}{3}$), C($\frac{3\pi}{2}$), C($\frac{5\pi}{3}$), C($\frac{7\pi}{4}
     \end{tabular}
 \end{table}
 
-\textbf{Assignment 3: Problems 22-32}
-
 \section{Problem 22}
 \textit{Graph the function C, using the ordered pairs ( $\theta$ , C($\theta$)) computed in the previous problem.}
 \\
 \begin{tikzpicture}
-\draw[step=1cm,gray,very thin] (-2,-2) grid (5,2); %grid body
-\draw[thick, dashed] (-2,0) -- (0,0); %grid line
-\draw[thick, dashed] (0,-2) -- (0,0); %grid line
-\draw[thick, dashed] (0,0) -- (5,0) node[anchor=north west] {$\theta$}; %axis
-\draw[thick, dashed] (0,0) -- (0,2) node[anchor=south east] {C($\theta$)}; %axis
-\draw (-2,-2) node [anchor=north] {-2$\pi$};
-\draw (-1,-2) node [anchor=north] {-$\pi$};
-\draw (0,-2) node [anchor=north] {0};
-\draw (1,-2) node [anchor=north] {$\pi$};
-\draw (2,-2) node [anchor=north] {2$\pi$};
-\draw (3,-2) node [anchor=north] {3$\pi$};
-\draw (4,-2) node [anchor=north] {4$\pi$};
-\draw (-2,0) node [anchor=east] {0};
-\draw (-2,-1) node [anchor=east] {-1};
-\draw (-2,1) node [anchor=east] {1};
-%SELF DRAW THE GRAPH OF C(theta)
+\begin{axis}[
+    axis lines=middle,
+    xmin=-6.6,xmax=10,ymin=-2,ymax=2,
+    xlabel={$x$},
+    ylabel={$y$}
+    ]
+  \addplot[samples=200] {cos(deg(x))}node[right]{$y=C(x)$};
+\end{axis}
 \end{tikzpicture}
 
 \section{Problem 23}
@@ -546,17 +566,18 @@ C($\frac{4\pi}{3}$), C($\frac{3\pi}{2}$), C($\frac{5\pi}{3}$), C($\frac{7\pi}{4}
 \section{Problem 24}
 \textit{Determine an approximate value for C($\frac{\pi}{5}$)}
 \\ \tab That value would be between C($\frac{\pi}{4}$) and C($\frac{\pi}{6}$), 
-so it would be between $\frac{\sqrt{2}}{2}$ and $\frac{\sqrt{3}}{2}$
+so it would be between $\frac{\sqrt{2}}{2}$ and $\frac{\sqrt{3}}{2}$. 
+In fact, I can average the two values to get that C{$\frac{\pi}{5}$) = $\frac{\sqrt{2}+\sqrt{3}}{4}$.
 
 \section{Problem 25}
 \textit{ List all values for $\theta$ where C( $\theta$ ) = $\frac{1}{2}$.}
-\\ \tab $\frac{5\pi}{3}$ , $\frac{\pi}{3}$.
-\\ \tab Anything else for which $\theta$ $\%$  $\pi$ = $\pm\frac{\pi}{3}$
+\\ \tab $\frac{\pi}{3}$ , $\frac{4\pi}{3}$.
+\\ \tab $\theta$ = $\frac{\pi}{3}$ and all values for which $\theta$ = $\pi$n+$\frac{\pi}{3}$ where n $\in \mathcal{Z}$
 
 \section{Problem 26}
 \textit{List all values for $\theta$ where C($\theta$) =$\frac{\sqrt{2}}{2}$. }
-$\theta$ =  $\frac{7\pi}{4}$ or  $\frac{\pi}{4}$
-\\ \tab Anything else for which $\theta$ $\%$ $\pi$ = $\pm\frac{\pi}{4}$
+$\theta$ =  $\frac{\pi}{4}$ or  $\frac{5\pi}{4}$
+\\ \tab $\theta$ = $\frac{\pi}{4}$ and all values for which $\theta$ = $\pi$n+$\frac{\pi}{4}$ where n $\in \mathcal{Z}$
 \\
 \textbf{Definition 12}
 \\ We define the function S such that if P = (x,y) is the point on the unit circle such that the radius of the circle that contains P forms an angle of radian measure $\theta$ with the positive x-axis, then S( $\theta$ ) = y.
@@ -565,79 +586,141 @@ $\theta$ =  $\frac{7\pi}{4}$ or  $\frac{\pi}{4}$
 \textit{Graph the function S}
 \\
 \begin{tikzpicture}
-\draw[step=1cm,gray,very thin] (-2,-2) grid (5,2); %grid body
-\draw[thick, dashed] (-2,0) -- (0,0); %grid line
-\draw[thick, dashed] (0,-2) -- (0,0); %grid line
-\draw[thick, dashed] (0,0) -- (5,0) node[anchor=north west] {$\theta$}; %axis
-\draw[thick, dashed] (0,0) -- (0,2) node[anchor=south east] {S($\theta$)}; %axis
-\draw (-2,-2) node [anchor=north] {-2$\pi$};
-\draw (-1,-2) node [anchor=north] {-$\pi$};
-\draw (0,-2) node [anchor=north] {0};
-\draw (1,-2) node [anchor=north] {$\pi$};
-\draw (2,-2) node [anchor=north] {2$\pi$};
-\draw (3,-2) node [anchor=north] {3$\pi$};
-\draw (4,-2) node [anchor=north] {4$\pi$};
-\draw (-2,0) node [anchor=east] {0};
-\draw (-2,-1) node [anchor=east] {-1};
-\draw (-2,1) node [anchor=east] {1};
-%SELF DRAW THE GRAPH OF S(theta)
+\begin{axis}[
+    axis lines=middle,
+    xmin=-6.6,xmax=10,ymin=-2,ymax=2,
+    xlabel={$x$},
+    ylabel={$y$}
+    ]
+  \addplot[samples=200] {sin(deg(x))}node[right]{$y=S(x)$};
+\end{axis}
 \end{tikzpicture}
 
 \section{Problem 28} 
 \textit{Solve S( $\theta$ ) = 1 for $\theta$.}
-\\ \tab $\theta$ = $\frac{\pi}{2}$ and all values for which $\theta$ $\%$ $\pi$ = $\frac{\pi}{2}$
+\\ \tab $\theta$ = $\frac{\pi}{2}$ and all values for which $\theta$ = 2*$\pi$n+$\frac{\pi}{2}$ where n $\in \mathcal{Z}$
 
 \section{Problem 29} 
 \textit{Solve S( $\theta$ ) = $\frac{\sqrt{3}}{2}$ for $\theta$.}
-\\ \tab $\theta$ = $\frac{\pi}{3}$ and all values for which $\theta$ $\%$ $\pi$ = $\frac{\pi}{3}$
+\\ \tab $\theta$ = $\frac{\pi}{3}$ and all values for which $\theta$ = 2*$\pi$n+$\frac{\pi}{3}$ where n $\in \mathcal{Z}$
 
 
 \section{Problem 30} 
 \textit{Solve S( $\theta$ ) = $-\frac{1}{2}$ for $\theta$.}
-\\ \tab $\theta$ = $-\frac{\pi}{6}$ and all values for which $\theta$ $\%$ $\pi$ = $-\frac{\pi}{6}$
+\\ \tab $\theta$ = $\frac{11\pi}{6}$ and all values for which $\theta$ = 2*$\pi$n+$\frac{11\pi}{6}$ where n $\in \mathcal{Z}$
 
 \section{Problem 31} 
 \textit{Let f be the fuction defined by f($\theta$) = -S($\theta$) for every real number $\theta$. Graph f.}
 \\
 \begin{tikzpicture}
-\draw[step=1cm,gray,very thin] (-2,-2) grid (5,2); %grid body
-\draw[thick, dashed] (-2,0) -- (0,0); %grid line
-\draw[thick, dashed] (0,-2) -- (0,0); %grid line
-\draw[thick, dashed] (0,0) -- (5,0) node[anchor=north west] {$\theta$}; %axis
-\draw[thick, dashed] (0,0) -- (0,2) node[anchor=south east] {-S($\theta$)}; %axis
-\draw (-2,-2) node [anchor=north] {-2$\pi$};
-\draw (-1,-2) node [anchor=north] {-$\pi$};
-\draw (0,-2) node [anchor=north] {0};
-\draw (1,-2) node [anchor=north] {$\pi$};
-\draw (2,-2) node [anchor=north] {2$\pi$};
-\draw (3,-2) node [anchor=north] {3$\pi$};
-\draw (4,-2) node [anchor=north] {4$\pi$};
-\draw (-2,0) node [anchor=east] {0};
-\draw (-2,-1) node [anchor=east] {-1};
-\draw (-2,1) node [anchor=east] {1};
-%SELF DRAW THE GRAPH OF S(theta)
+\begin{axis}[
+    axis lines=middle,
+    xmin=-6.6,xmax=7.5,ymin=-2,ymax=2,
+    xlabel={$x$},
+    ylabel={$y$}
+    ]
+  \addplot[samples=200] {-sin(deg(x))}node[above]{$y=-S(\theta)$};
+\end{axis}
 \end{tikzpicture}
 
 \section{Problem 32} 
 \textit{Let g be the function defined by g($\theta$) = C($\theta$ + $\frac{\pi}{2}$) for every real number $\theta$. Graph g.}
 \\
 \begin{tikzpicture}
-\draw[step=1cm,gray,very thin] (-2,-2) grid (5,2); %grid body
+\begin{axis}[
+    axis lines=middle,
+    xmin=-6.6,xmax=8.5,ymin=-2,ymax=2,
+    xlabel={$x$},
+    ylabel={$y$}
+    ]
+  \addplot[samples=200] {-sin(deg(x))}node[above]{$y=-S(\theta + \frac{\pi}{2})$};
+\end{axis}
+\end{tikzpicture}
+
+\textbf{Definition 13}
+Let T be the function defined by T($\theta$) = $\frac{S(\theta)}{C(\theta)}$ for every real number $\theta$.
+
+\section{Problem 33}
+\textit{For what values of $\theta$ will T be undefined?}
+\\ Any where $\theta$ = 2$\pi$n + 90.
+
+\section{Problem 34}
+\textit{Write down a set that is the domain of T}
+\\ X $\neq$ 2$\pi$n + 90.
+
+\section{Problem 35}
+\textit{Graph T}
+\\
+\begin{tikzpicture}
+\begin{axis}[
+    axis lines=middle,
+    xmin=-4.3,xmax=7.8,ymin=-4.5,ymax=4.5,
+    xlabel={$x$},
+    ylabel={$y$}
+    ]
+  \addplot[samples=200] {tan(deg(x))}node[right]{$y=\tan x$};
+\end{axis}
+
+\end{tikzpicture}
+
+\section{Problem 36}
+\textit{We can skip this problem}
+
+\section{Problem 37}
+\textit{Let $\theta$ be a number such that $\theta$ is between 0 and $\frac{\pi}{2}$. Draw the unit circle, the line that is tangent to the unit circle at (1, 0), and the line that forms an angle of radian measure $\theta$ with the positive x-axis}
+\\
+\begin{tikzpicture}
+\unitcirclenolines
+\draw[thick] (0,0) -- (1,1);
+\draw (-.25, .5) node {$\theta$ = 45};
+\draw[thick] (1,-1) -- (1, 1);
+\draw (1.25, .25) node {A};
+\draw (1.25, .75) node {B};
+\draw (.25, -.25) node {C};
+\end{tikzpicture}
+
+\section{Problem 38}
+\textit{Refer to the picture from the previous problem. Determine the length of the line segment between (1,0) and the intersection of the two lines.}
+\\ \tab I can apply the tan() function. I know that $\frac{\overline{BA}}{\overline{CA}}$ must equal tan($\theta$). Since I know that tan($\theta$) = tan(45), I know that tan($\theta$) must equal 1. I already know that $\overline{CA}$ is 1. Therefore, $\overline{AB}$ must also be 1. 
+\\
+\begin{tikzpicture}
+\draw[step=1cm,gray,very thin] (-2,-2) grid (2,2); %grid body
 \draw[thick, dashed] (-2,0) -- (0,0); %grid line
 \draw[thick, dashed] (0,-2) -- (0,0); %grid line
-\draw[thick, dashed] (0,0) -- (5,0) node[anchor=north west] {$\theta$}; %axis
-\draw[thick, dashed] (0,0) -- (0,2) node[anchor=south east] { C($\theta$ + $\frac{\pi}{2}$)}; %axis
-\draw (-2,-2) node [anchor=north] {-2$\pi$};
-\draw (-1,-2) node [anchor=north] {-$\pi$};
-\draw (0,-2) node [anchor=north] {0};
-\draw (1,-2) node [anchor=north] {$\pi$};
-\draw (2,-2) node [anchor=north] {2$\pi$};
-\draw (3,-2) node [anchor=north] {3$\pi$};
-\draw (4,-2) node [anchor=north] {4$\pi$};
-\draw (-2,0) node [anchor=east] {0};
-\draw (-2,-1) node [anchor=east] {-1};
-\draw (-2,1) node [anchor=east] {1};
-%SELF DRAW THE GRAPH OF S(theta)
+\draw[thick, dashed] (0,0) -- (2,0) node[anchor=north west] {x}; %axis
+\draw[thick, dashed] (0,0) -- (0,2) node[anchor=south east] {y}; %axis
+\draw[thick] (0,0) -- (2,1.5) node[anchor=south west] {D};
+\draw[thick] (0,0) -- (2,0) node[anchor=south west] {C};
+\draw[thick] (.8,.55) -- (.8, 0);
+\draw(.8, -.25) node {B};
+\draw(.8, 1) node {E};
+\draw[thick] (2,0) -- (2,1.5);
+\draw (-.25,-.25) node {A};
+\draw [thick] (0,0) circle (1cm);
 \end{tikzpicture}
+\\ \textbf{Note: Refer to the figure above for the next three problems. Assume that the circle is a unit circle, $\theta$ is the radian measure of the angle EAB, and $\theta$ is between 0 and $\frac{\pi}{2}$.}
+
+\section{Problem 39}
+\textit{Show that S($\theta$) = l($\frac{CD}{AD}$)}.
+\\ \tab
+I know that triange EAB is the congruent to triangle DAC. Threrefore, $\frac{CD}{AD}$ = $\frac{BE}{AE}$. I also know that AE=1. When I look at the smaller triangle, BE is equal to S($\theta$), so this makes sense. When I scale up the lengths of AE, BE, and AB (to AD, DC and AC), I find that the theorem still holds.
+
+\section{Problem 40}
+\textit{Show that C($\theta$) = l($\frac{AC}{AD}$)}.
+\\ \tab
+I know that triange EAB is congruent to triangle DAC. Threrefore, $\frac{AC}{AD}$ = $\frac{AB}{AE}$. I also know that AE=1. When I look at the smaller triangle, AB is equal to C($\theta$), so this makes sense. When I scale up the lengths of AE, BE, and AB (to AD, DC and AC), I find that the theorem still holds. 
+
+\section{Problem 41}
+\textit{Show that T($\theta$) = l($\frac{CD}{AC}$)}.
+\\ \tab
+I know that triange EAB is congruent to triangle DAC. \\Threrefore, $\frac{CD}{AC}$ = $\frac{BE}{AB}$. Based on this knowledge, along with what we already know about sin(), cos(), and tan(), we find that T($\theta$) = l($\frac{CD}{AC}$).
+
+\newpage
+\textbf{For Reference:}
+\\
+\begin{tikzpicture}
+\unitcircle
+\end{tikzpicture}
+
 \end{document}
 
