@@ -1,0 +1,93 @@
+% !TEX TS-program = pdflatex
+% !TEX encoding = UTF-8 Unicode
+
+% This is a simple template for a LaTeX document using the "article" class.
+% See "book", "report", "letter" for other types of document.
+
+\documentclass[11pt]{article} % use larger type; default would be 10pt
+
+\usepackage[utf8]{inputenc} % set input encoding (not needed with XeLaTeX)
+
+%%% Examples of Article customizations
+% These packages are optional, depending whether you want the features they provide.
+% See the LaTeX Companion or other references for full information.
+
+%%% PAGE DIMENSIONS
+\usepackage{geometry} % to change the page dimensions
+\geometry{a4paper} % or letterpaper (US) or a5paper or....
+% \geometry{margin=2in} % for example, change the margins to 2 inches all round
+% \geometry{landscape} % set up the page for landscape
+%   read geometry.pdf for detailed page layout information
+
+\usepackage{graphicx} % support the \includegraphics command and options
+
+% \usepackage[parfill]{parskip} % Activate to begin paragraphs with an empty line rather than an indent
+
+%%% PACKAGES
+\usepackage{tikz}
+\usepackage{booktabs} % for much better looking tables
+\usepackage{color} % Added by me
+\usepackage{array} % for better arrays (eg matrices) in maths
+\usepackage{paralist} % very flexible & customisable lists (eg. enumerate/itemize, etc.)
+\usepackage{verbatim} % adds environment for commenting out blocks of text & for better verbatim
+\usepackage{subfig} % make it possible to include more than one captioned figure/table in a single float
+% These packages are all incorporated in the memoir class to one degree or another...
+
+%%% HEADERS & FOOTERS
+\usepackage{fancyhdr} % This should be set AFTER setting up the page geometry
+\pagestyle{fancy} % options: empty , plain , fancy
+\renewcommand{\headrulewidth}{0pt} % customise the layout...
+\lhead{}\chead{}\rhead{}
+\lfoot{}\cfoot{\thepage}\rfoot{}
+
+%%% SECTION TITLE APPEARANCE
+\usepackage{sectsty}
+\allsectionsfont{\sffamily\mdseries\upshape} % (See the fntguide.pdf for font help)
+% (This matches ConTeXt defaults)
+
+%%% ToC (table of contents) APPEARANCE
+\usepackage[nottoc,notlof,notlot]{tocbibind} % Put the bibliography in the ToC
+\usepackage[titles,subfigure]{tocloft} % Alter the style of the Table of Contents
+\renewcommand{\cftsecfont}{\rmfamily\mdseries\upshape}
+\renewcommand{\cftsecpagefont}{\rmfamily\mdseries\upshape} % No bold!
+
+%%% END Article customizations
+
+%%% The "real" document content comes below... %%%
+
+\title{Four Counting Problems}
+\author{Ethan Schaffer}
+\date{Due 11/3/16}
+\newcommand\tab[1][1cm]{\hspace*{#1}}
+
+\begin{document}
+\maketitle
+\section* {Problem}
+\textit{Show that the four counting problems listed in 2.3.9 all have the same answer by using the principle of one to one correspondence.}
+\\
+\\
+\tab \textbf{The problems listed in 2.3.9 are:}
+\begin{itemize}
+\item The number of different words made out of n letters, where there are k of one kind of letter and (n - k) of another kind.
+\item The number of ways of placing k identical balls into n different boxes, no more than one ball per box.
+\item The number of ways Bill can walk to work if he lives k blocks west and (n - k) blocks south from where he works.
+\end{itemize}
+\section*{Solution}
+\tab To prove that all four problems have the same answer, I will prove that they all have one-to-one coorespondence with the same rule. If I can do that, then I know I can convert from any problem to that rule's set, and then from said set to any other problem. 
+\\ \tab For that rule, I will always have a set of size n.
+\\ \tab First, I will explain what I will do to convert the ``word'' problem to my list. My set will be of the same size as the length of the word, because it is of size n. So, every space in my set cooresponds to its respective spot in the word. For every space in my set, I will put either a ``True'' or a ``False''. I will put a ``True'' only if the respective letter is the letter of which there are `n'. Otherwise, I will put a false. To reverse this operation, I will read my set. If a value in a space is ``True'', I will put the letter of which there are `n' into that space. Otherwise, I will put the letter of which there are (n-k) into that spot.
+\\ \tab Now, I will explain what I will do to convert the ``ball'' problem to my list. My set will be of the same size as the number of balls, because it is of size n. So, every space in my set cooresponds to a respective place where there can be a ball. For every space in my set, I will put either a ``True'' or a ``False''. I will put a ``True'' only if there is a ball in that spot. Otherwise, I will put a false. To reverse this operation, I will read my set. If a value in a space is ``True'', I will put a ball into that space. Otherwise, I will not put a ball into that spot.
+\\ \tab Now, I will explain what I will do to convert the ``Bill'' problem to my list. My set will be of the same size as the number of blocks Bill lives away from work, because it is of size n. So, every space in my set cooresponds to a respective street Bill can travel. For every space in my set, I will put either a ``True'' or a ``False''. I will put a ``True'' only if Bill goes West. Otherwise, I will put a false. To reverse this operation, I will read my set. If a value in a space is ``True'', I know Bill must go West. Otherwise, I know Bill must go West. 
+\\ \tab Based on this, I know that I can convert any one of these problems into a set of ``True'' and ``False'' values. I can also convert any set I have created into a set of any problem type. Because of this, I know that all of the sets have one to one coorespondence, and, as such, must have the same number of solutions.
+
+
+\section* {Analysis}
+\tab I felt like this problem was very simple, especially because of how we worked through 2.3.1-2.3.8 in class. The class already understood why they are all the same, why bother proving it? 
+\\ \tab To be fair, I would bet that having practice indentifying problems with one-to-one coorespondence will come in handy later this unit.
+
+\section* {Status}
+\tab I feel like I fully understand this problem.
+
+\section* {MVP}
+\tab I have no MVP for this problem.
+\end{document}

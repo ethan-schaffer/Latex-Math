@@ -25,6 +25,7 @@
 
 %%% PACKAGES
 \usepackage{tikz}
+\usepackage{dsfont}
 \usepackage{pgfplots}
 \usepackage{booktabs} % for much better looking tables
 \usepackage{array} % for better arrays (eg matrices) in maths
@@ -60,6 +61,7 @@
 \date{Due 10/13/2016} % Activate to display a given date or no date (if empty),
          % otherwise the current date is printed 
 \newcommand\tab[1][1cm]{\hspace*{#1}}
+\newcommand\ang{$\theta$}
 \newcommand\unitcircle{
 \draw[step=1cm,gray,very thin] (-3,-3) grid (3,3); %grid body
 \draw[thick, dashed] (-4,0) -- (0,0); %grid line
@@ -98,6 +100,7 @@
 \draw[thick, dashed] (0,0) -- (0,2) node[anchor=south east] {y}; %axis
 \draw [thick] (0,0) circle (1cm);
 }
+
 \begin{document}
 \maketitle
 
@@ -715,9 +718,212 @@ I know that triange EAB is congruent to triangle DAC. Threrefore, $\frac{AC}{AD}
 \\ \tab
 I know that triange EAB is congruent to triangle DAC. \\Threrefore, $\frac{CD}{AC}$ = $\frac{BE}{AB}$. Based on this knowledge, along with what we already know about sin(), cos(), and tan(), we find that T($\theta$) = l($\frac{CD}{AC}$).
 
-\newpage
-\textbf{For Reference:}
+We have now defined three functions, referred to as S, C, and T. 
+We have also shown that if we have a right triangle with one angle of radian measure $\theta$,
+ and we assume that the side adjacent to this angle has length a, the side opposite from this angle has length o, 
+ and the remaining side (the hypotenuse) has length h, then these functions satisfy S( $\theta$ ) = $\frac{o}{h}$, C( $\theta$ ) = $\frac{a}{h}$, and T( $\theta$ ) = $\frac{o}{a}$. 
+ 
+Of course, these are the three trigonometric functions sine, cosine, and tangent, that are commonly abbreviated as sin, cos, and tan, respectively. Notice that we also showed that the tangent function gets its name from the fact that it represents the length of a line segment associated with a certain line tangent to the unit circle. We now define three more functions in terms of the sine, cosine, and tangent functions.
+
+\textbf{Definition 14.} For any number $\theta$ for which cosine is non-zero, let secant be the function defined by sec($\theta$) = $\frac{1}{cos(\theta)}$.
+\textbf{Definition 15.} For any number $\theta$ for which sine is non-zero, let cosecant be the function defined by csc($\theta$) = $\frac{1}{sin(\theta)}$.
+\textbf{Definition 16.} For any number $\theta$ for which cosine is non-zero, let cotangent be the function defined by cot( $\theta$ ) = $\frac{cos(\theta)}{sin(\theta)}$
+\section{Problem 42}
+\textit{Graph the secant function, and list the domain and range.}
 \\
+\begin{tikzpicture} \begin{axis}[
+    axis lines=middle,
+    xmin=-4.3,xmax=8.5,ymin=-4.5,ymax=4.5,
+    xlabel={$x$},
+    ylabel={$y$}
+    ]
+  \addplot[samples=200] {sec(deg(x))}node[right]{$y=\sec x$};
+\end{axis} \end{tikzpicture}
+
+\section{Problem 43}
+\textit{Find all numbers u that satisfy 2sin(u) = 1.}
+\\
+This equation asks us to find all numbers for which sin(u) = $\frac{1}{2}$. We already know that this number is $\frac{\pi}{4}$+2n$\pi$ where n $\in \mathcal{Z}$.
+
+\textbf{Note:} The previous problem could be written “Solve 2sin(u) = 1 for u”.
+\section{Problem 44}
+\textit{ Graph the function defined by t(x) = 3sin(x-$\pi$}
+\\ \begin{tikzpicture} \begin{axis}[
+    axis lines=middle,
+    xmin=-4.3,xmax=10,ymin=-4.5,ymax=4.5,
+    xlabel={$x$},
+    ylabel={$y$}
+    ]
+  \addplot[samples=200] {3*sin(deg(x-3.14))}node[right]{$y=3*\sin x-3.14$};
+\end{axis} \end{tikzpicture}\\
+This graph makes sense because it is just like sin(x), but it is scaled up because we multiply the output of sin(x) by 3. We also shifted sin(x) to the right, by subtracting $\pi$ from x. 
+
+\section{Problem 45}
+\textit{Graph the function defined by f(x) = 5-cos(2x).}
+\\ \begin{tikzpicture} \begin{axis}[
+    axis lines=middle,
+    xmin=-4.3,xmax=17,ymin=3.5,ymax=6.5,
+    xlabel={$x$},
+    ylabel={$y$}
+    ]
+  \addplot[samples=200] {5-sin(deg(2*x))}node[right]{$y=5-\cos(2x)$};
+\end{axis} \end{tikzpicture}\\
+
+\section{Problem 46}
+\textit{Graph the function defined by r(x) = sin(x)+cos(x).}
+\\ \begin{tikzpicture} \begin{axis}[
+    axis lines=middle,
+    xmin=-4.3,xmax=12,ymin=-2.5,ymax=2.5,
+    xlabel={$x$},
+    ylabel={$y$}
+    ]
+  \addplot[samples=200] {sin(deg(x))+cos(deg(x))}node[right]{$y=\sin x + \cos x$};
+\end{axis} \end{tikzpicture}\\
+
+\section{Problem 47}
+\textit{Graph the function defined by z(u) = u*sin(u).}
+\\ \begin{tikzpicture} \begin{axis}[
+    axis lines=middle,
+    xmin=-4.3,xmax=6,ymin=-2.5,ymax=2.5,
+    xlabel={$x$},
+    ylabel={$y$}
+    ]
+  \addplot[samples=200] {x*sin(deg(x))}node[right]{$y=u*\sin u$};
+\end{axis} \end{tikzpicture}\\
+
+\section{Problem 48}
+\textit{At what minimum height above ground level must I place a satellite dish so that at a 30-degree angle, it will be able to ``see'' the sky over the top of a building that is 40 feet tall and 50 feet away from the dish?}
+\\ \tab To solve this problem, I found the value of
+            \begin{equation} 40 - (50tan(30)).  \end{equation}
+The value of 50tan(30) tells me how high up the dish could see if it were on that ground. That value is 28.86 feet. Based on that, I can do 40  - 28.86 to find that if I mount the dish 11.132 feet off the ground, it's beam would make contact with the very top of the building. As such, it makes sense to mount the dish \textbf{A little more than 11.132 feet} off the ground.
+
+
+\section{Problem 49}
+\textit{Solve 2*cos($\theta$) = -$\sqrt{3}$ for $\theta$.}
+\\ \tab This problem is really just asking for when cos($\theta$) = -$\frac{\sqrt{3}}{2}$. We already know that those values are:
+\begin{equation}  2n\pi \pm \frac{5\pi}{6} \end{equation}
+where n $\in \mathcal{Z}$. 
+
+\section{Problem 50}
+\textit{Solve tan( $\theta$ ) = 1 for $\theta$.}
+\\ tan( $\theta$ ) = 1
+\\ $\frac{sin(\theta)}{cos(\theta)}$ = 1
+\\ sin($\theta$) = cos($\theta$)
+\\ $\theta = \frac{\pi}{4}+\pi k$ where $k \in \mathcal{Z}$
+\\
+\\
+\tab \textbf{Notation: sin\textsuperscript{n}( $\theta$ ) means (sin( $\theta$ ))n for all values of n except n = -1. In the case of n =-1, this expression represents the inverse sine function to be defined later. The same rule applies for all six of the trigonometric functions.}
+
+\section{Problem 51} 
+\textit{Solve cos\textsuperscript{2}( $\theta$ )-1 = 0 for $\theta$.}
+\\
+\\ cos\textsuperscript{2}( $\theta$ ) = 1
+\\ cos( $\theta$ )\textsuperscript{2} = 1
+\\ $\sqrt{cos(\theta)}$ = $\sqrt{1}$
+\\ cos( $\theta$ ) = $\pm 1$
+\\ $\theta$ = $\pi n$ where $n \in \mathcal{Z}$
+
+
+\section{Problem 52}
+Graph the cosecant function. 
+\\ 
+\begin{tikzpicture}
+     \begin{axis}[
+       xmin=-6,
+       xmax=6,
+       xlabel={$x$},
+       ymin=-2,
+       ymax=2,
+       ylabel={$y$},
+       axis x line=middle,
+       axis y line=middle,
+       axis line style=<->
+     ]
+       \addplot[no marks,blue,<->] expression[samples=100]{cosec(deg(x))};
+       \addlegendentry{$y=\csc(x)$}; 
+     \end{axis}
+   \end{tikzpicture}
+
+\section{Problem 53}
+\textit{Solve sin\textsuperscript{2}(x)-sin(x) = 0 for x.}
+\\
+\\ sin\textsuperscript{2}(x)-sin(x) = 0
+\\ sin(x)\textsuperscript{2}-sin(x) = 0
+\\ sin(x)\textsuperscript{2}-sin(x) = 0
+\\ sin(x)\textsuperscript{2} = sin(x)
+\\ sin(x) must equal 0 or 1. sin(x) $\neq$ -1, as -1*-1 $\neq$ -1.
+\\ sin(x) = $\pi n$ or $2\pi n + \frac{\pi}{2}$, where n $\in \mathcal{Z}$
+
+
+\section{Problem 54} 
+\textit{Solve 2sin\textsuperscript{2}$(\frac{x}{2}$)-3sin\textsuperscript{2}($\frac{x}{2}$)+1 =0 for x.}
+\\
+\\2sin\textsuperscript{2}$(\frac{x}{2}$)-3sin\textsuperscript{2}($\frac{x}{2}$)+1 =0
+\\2sin$(\frac{x}{2})$\textsuperscript{2}-3sin($\frac{x}{2}$)\textsuperscript{2}+1 =0
+\\Here, sin$(\frac{x}{2})$\textsuperscript{2} must equal 1. So, I can solve for 
+\\ sin$(\frac{x}{2})$\textsuperscript{2} = 1
+\\ $\sqrt{sin(\frac{x}{2})\textsuperscript{2}}$ = $\pm$1
+\\ sin$(\frac{x}{2})$ = $\pm$1
+\\ So, x = 2n$\pi$, where n $\in \mathcal{Z}$
+
+
+\section{Problem 55}
+\textit{Krista is standing at the edge of a long straight beach when she sees Jared drowning. Assume that Jared is at a distance of 76 meters straight out from a point on the beach that is 380 meters from where Krista is standing. Assume that Krista can run at 6.5 meters per second and swim at 1.4 meters per second. Krista runs down the beach toward Jared to a point P on the beach, and then dives into the water and swims to Jared. The angle at the point P between the beach and the line from P to Jared has a measure of 77 degrees. How long does it take Krista to save Jared? Could she have saved him faster by taking a different path?}
+\\ ??
+
+
+\section{Problem 56} \textit{Graph cotangent, and list its domain and range.}
+\\
+\begin{tikzpicture}
+     \begin{axis}[
+       xmin=-6,
+       xmax=6,
+       xlabel={$x$},
+       ymin=-2,
+       ymax=2,
+       ylabel={$y$},
+       axis x line=middle,
+       axis y line=middle,
+       axis line style=<->
+     ]
+        \addplot[no marks,blue,<->]expression[samples=100]{$1/\tan(deg(x))$};
+       \addlegendentry{$y=cotan(x)$};
+	\end{axis}
+\end{tikzpicture}
+\\
+Domain: $\mathds{R}$
+\\ Range: Y $>$ 1 or Y $<$ -1. 
+
+\section{Problem 57} \textit{Solve cot($\theta$) $>$ 0 for $\theta$}
+\\
+$\pi n<x<\pi n + \frac{\pi}{2}, n \in \mathcal{Z}$
+\\
+If $\theta = \pi$, then sin($\theta$)=0, and the equation would be undefined. If $\theta = \frac{\pi}{2}$, then cos($\theta$) would be 0, and $\frac{0}{sin(\theta)}$ would equal 0. 
+\begin{comment}
+\section{Problem 58}
+\textit{Graph the function defined by f(x) = 3-2sin(2x+$\pi$ ).}
+\begin{tikzpicture}
+     \begin{axis}[
+       xmin=-6,
+       xmax=6,
+       xlabel={$x$},
+       ymin=-2,
+       ymax=2,
+       ylabel={$y$},
+       axis x line=middle,
+       axis y line=middle,
+       axis line style=<->
+     ]
+       \addplot[no marks,blue,<->] expression[samples=100]{$y = 3-2\sin(2*deg(x)+3.14)$};
+       \addlegendentry{y=f(x)};
+	\end{axis}
+\end{tikzpicture}
+
+\end{comment}
+
+\newpage
+\section*{For Reference:}
+
 \begin{tikzpicture}
 \unitcircle
 \end{tikzpicture}

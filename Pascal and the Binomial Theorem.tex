@@ -1,0 +1,125 @@
+% !TEX TS-program = pdflatex
+% !TEX encoding = UTF-8 Unicode
+
+% This is a simple template for a LaTeX document using the "article" class.
+% See "book", "report", "letter" for other types of document.
+
+\documentclass[11pt]{article} % use larger type; default would be 10pt
+
+\usepackage[utf8]{inputenc} % set input encoding (not needed with XeLaTeX)
+
+%%% Examples of Article customizations
+% These packages are optional, depending whether you want the features they provide.
+% See the LaTeX Companion or other references for full information.
+
+%%% PAGE DIMENSIONS
+\usepackage{geometry} % to change the page dimensions
+\geometry{a4paper} % or letterpaper (US) or a5paper or....
+% \geometry{margin=2in} % for example, change the margins to 2 inches all round
+% \geometry{landscape} % set up the page for landscape
+%   read geometry.pdf for detailed page layout information
+
+\usepackage{graphicx} % support the \includegraphics command and options
+
+% \usepackage[parfill]{parskip} % Activate to begin paragraphs with an empty line rather than an indent
+
+%%% PACKAGES
+\usepackage{tikz}
+\usepackage{booktabs} % for much better looking tables
+\usepackage{color} % Added by me
+\usepackage{array} % for better arrays (eg matrices) in maths
+\usepackage{paralist} % very flexible & customisable lists (eg. enumerate/itemize, etc.)
+\usepackage{verbatim} % adds environment for commenting out blocks of text & for better verbatim
+\usepackage{subfig} % make it possible to include more than one captioned figure/table in a single float
+% These packages are all incorporated in the memoir class to one degree or another...
+
+%%% HEADERS & FOOTERS
+\usepackage{fancyhdr} % This should be set AFTER setting up the page geometry
+\pagestyle{fancy} % options: empty , plain , fancy
+\renewcommand{\headrulewidth}{0pt} % customise the layout...
+\lhead{}\chead{}\rhead{}
+\lfoot{}\cfoot{\thepage}\rfoot{}
+
+%%% SECTION TITLE APPEARANCE
+\usepackage{sectsty}
+\allsectionsfont{\sffamily\mdseries\upshape} % (See the fntguide.pdf for font help)
+% (This matches ConTeXt defaults)
+
+%%% ToC (table of contents) APPEARANCE
+\usepackage[nottoc,notlof,notlot]{tocbibind} % Put the bibliography in the ToC
+\usepackage[titles,subfigure]{tocloft} % Alter the style of the Table of Contents
+\renewcommand{\cftsecfont}{\rmfamily\mdseries\upshape}
+\renewcommand{\cftsecpagefont}{\rmfamily\mdseries\upshape} % No bold!
+
+%%% END Article customizations
+
+%%% The "real" document content comes below... %%%
+
+\title{Binomial Theorem}
+\author{Ethan Schaffer}
+\date{Due 11/10/16}
+\newcommand\tab[1][1cm]{\hspace*{#1}}
+
+\begin{document}
+\maketitle
+
+
+\section* {Problem}
+\textit{Prove the Binomial Theorem}
+
+\section*{Solution}
+\tab The Binomial Theorem states that $(x+y)^n$ can be expanded into a set of n+1 terms, where each term is added together and has a coefficient equal to $n\atop k$, where  $0 \leq  k \leq n$. Why all of these things are the way there are can seem confusing, but the do make sense once to look into what is going on with the arthmetic itself. One of the most important things to do is to write out the problem. For instance, we would write $(x+y)^4$ as (x+y)(x+y)(x+y)(x+y). This will help us to visualize what is going on in this problem.
+
+\subsection*{Why is the coefficient ($n\atop k$)?}
+\tab This is probably my favorite part of this theorem. It relates what we just talked about in combinatorics to an algebraic concept. We know that every term of the set of terms has some number of the term denoted x in it. If we take the sum of the coefficients, we get $2^n$, which is significant in that we already proved that the sum of $n \atop k$ for each k between 0 and n is $2^n$. We split these coefficients as we do because each possible subset where x is put the a power h can be reached by choosing h `x terms' from our list that we wrote out earlier. 
+
+\subsection*{What's up with the powers?}
+\tab After looking at a simplified form of $(x+y)^n$, people notice that the sum of the exponents for the x and y terms are always equal to n itself. Why is that? The answer is pretty simple. When muliplying out each like term of our set we choose k 'x terms' and n-k `y terms'. The sum of these terms (and thus the sum of the coefficients), obviously, must be n. This even works when we choose 0 `x' or `y' terms; we chose n of the other kind of term.
+
+\subsection*{Why n+1 terms?}
+\tab One confusing thing is why there are n+1 unique terms in the binomial theorem. The answer to this is that we can choose to have anywhere from 0 to n `x' terms in any set. As such, we take n+1, because we can't forget about the possibility of choosing no `x' terms. 
+
+\subsection*{Why are we adding? When might we not add?}
+\tab We have to add because terms like $x^{k} y^{n-k}$ and $x^{k+1} y^{n-k+1}$ are different, and can't be added together. As a matter of fact, we don't always have to add. If our x or y term is negative, we will subtract every other term. We only subtract every other because when our negative term is put to an even power, that term becomes positive and we would add it to the others.
+\\
+\\ \tab The \textit{really} interesting part of this interaction, however, is what happens when both x and y are negative. Of course, we could simply factor out a negative sign and conclude that $(-1-1)^n$ = $(-2^n)$ = $\pm({n\atop 0})+ ({n\atop 1}) + ... + ({n\atop n-1}) + ({n\atop n})$ . However, the more intersting thing is that even if we don't factor one out, we reach to same conclusion. The fun part, however, is that whether n is even or odd plays a big part in helping to determine the final equation. 
+\\ \tab If n is odd, than we know that it is impossible for both k and n-k to be even. As such, the other must be odd. So, when we put one negative number to an even power and the other to an odd power, one must be even and one must be odd. When we multiply those together, we would find that that term must be negative. However, we actually just found that every term must be negative.  As such, we know that when n is negative, the output overall must be negative. This makes sense, because $(-2)^{p}$ where p is any odd number is always negative. 
+\\ \tab If n is even, then we know that k and k-n must either both be even or both be odd. As I discussed earlier, when we have a negative number put to an odd power, it stays negative. If we put a negative number to an even power, it must become even. Therefore, after applying exponents I will either have to positive or two negative numbers. When I multiply them together, they must become positive. This logic applies to every term, so I know that every term in my set must be positive. Therefore, the entire set must be positive. 
+\\ \tab I know that what I just explained may seem obvious, but I think that it was still an interesting and unique enough situation to warrant discussion.
+
+\subsection*{Are there any other interesting ways to prove this theorem?} 
+\tab I'm so glad you asked, useful rhetorical questions that I happen to write. I think that a much cooler way to prove the binomial theorem is to make both x and y equal to 1. When we do this, we find that $(1+1)^n$ would equal $({n\atop 0})+ ({n\atop 1}) + ... + ({n\atop n-1}) + ({n\atop n})$. We proved last formal write up that $2^n$ is equal to $({n\atop 0})+ ({n\atop 1}) + ... + ({n\atop n-1}) + ({n\atop n})$, which proves that our formula works, because $(1+1)^n$=$(2)^n$. Although this proof is a little bit `cheaty', I think it really helps to reinforce the binomial theorem. 
+
+\section*{Pascal}
+\tab I also forgot to talk about Pascal's triangle! When I was first taught the trick to finding the binomial coeficients of $(x+y)^n$, I was told to reference a row of Pascal's triangle. On that row, the binomial coefficients could be found, in order. At first, I was confused as to how Pascal's triange, which uses addition, can relate to powers that get larger over time. Then, however, I realized that in each new row of Pascal's triangle, a (x+y) is distrubuted into the set of coeficients we just had. This relationship, albeit complicated, is an third way to show what is going on as part of the inner workings of the binomial theorem.
+
+\section* {Analysis}
+\tab This problem was so much fun! It was a fantastic excercise in applying what we already knew, and was a lot of fun to work through. As soon as we worked through this problem in class I saw that it was really worth looking into more, and I am glad that I was able to do just that. 
+
+\section* {Status}
+I feel like I fully understand ths problem.
+
+\section* {MVP}
+My MVP for this problem is my Dad, who encouraged me to go above and beyond what was required.
+
+\section* {MVW}
+My MVW\footnote{Most Valuable Word} is Term, which I used far more than I should. I apologize in advance if you become confused between my discussion of terms in the solution and the x and y terms within each of those terms. I tried to avoid making confusing choices in that regard, but I don't think I was perfect at avoiding them. 
+ 
+ \newpage
+
+\section* {2.3.17}
+Expand $(2x + 5y)^7$
+\\ \tab $128 x^7+2240 x^6 y+16800 x^5 y^2+70000 x^4 y^3+175000 x^3 y^4+$
+\\ \tab \tab $262500 x^2 y^5 + 218750 x y^6+78125 y^7$
+\section* {2.3.19}
+\textit{Find the coefficient of $s^3$ $t^8$ in $(s - 3t^2)^7$}
+\\ \tab The coefficient is 2835. 
+
+\section* {2.3.25}
+\textit{By another choice of x and y in Theorem 1\footnote{Binomial Theorem}, show why}
+\begin{equation}
+({n\atop 0}) - ({n\atop 1}) + ({n\atop 2}) - ... \pm ({n\atop n-1}) \mp ({n\atop n}) = 0
+\end{equation}
+\tab We can choose x = 1 and y = -1 and the terms of the equation would all cancel, no matter what value of n we have. The equation is interesting when we take y to an even power. 
+
+\end{document}

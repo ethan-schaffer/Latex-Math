@@ -1,0 +1,91 @@
+% !TEX TS-program = pdflatex
+% !TEX encoding = UTF-8 Unicode
+
+% This is a simple template for a LaTeX document using the "article" class.
+% See "book", "report", "letter" for other types of document.
+
+\documentclass[11pt]{article} % use larger type; default would be 10pt
+
+\usepackage[utf8]{inputenc} % set input encoding (not needed with XeLaTeX)
+
+%%% Examples of Article customizations
+% These packages are optional, depending whether you want the features they provide.
+% See the LaTeX Companion or other references for full information.
+
+%%% PAGE DIMENSIONS
+\usepackage{geometry} % to change the page dimensions
+\geometry{a4paper} % or letterpaper (US) or a5paper or....
+% \geometry{margin=2in} % for example, change the margins to 2 inches all round
+% \geometry{landscape} % set up the page for landscape
+%   read geometry.pdf for detailed page layout information
+
+\usepackage{graphicx} % support the \includegraphics command and options
+
+% \usepackage[parfill]{parskip} % Activate to begin paragraphs with an empty line rather than an indent
+
+%%% PACKAGES
+\usepackage{tikz}
+\usepackage{booktabs} % for much better looking tables
+\usepackage{color} % Added by me
+\usepackage{array} % for better arrays (eg matrices) in maths
+\usepackage{paralist} % very flexible & customisable lists (eg. enumerate/itemize, etc.)
+\usepackage{verbatim} % adds environment for commenting out blocks of text & for better verbatim
+\usepackage{subfig} % make it possible to include more than one captioned figure/table in a single float
+% These packages are all incorporated in the memoir class to one degree or another...
+
+%%% HEADERS & FOOTERS
+\usepackage{fancyhdr} % This should be set AFTER setting up the page geometry
+\pagestyle{fancy} % options: empty , plain , fancy
+\renewcommand{\headrulewidth}{0pt} % customise the layout...
+\lhead{}\chead{}\rhead{}
+\lfoot{}\cfoot{\thepage}\rfoot{}
+
+%%% SECTION TITLE APPEARANCE
+\usepackage{sectsty}
+\allsectionsfont{\sffamily\mdseries\upshape} % (See the fntguide.pdf for font help)
+% (This matches ConTeXt defaults)
+
+%%% ToC (table of contents) APPEARANCE
+\usepackage[nottoc,notlof,notlot]{tocbibind} % Put the bibliography in the ToC
+\usepackage[titles,subfigure]{tocloft} % Alter the style of the Table of Contents
+\renewcommand{\cftsecfont}{\rmfamily\mdseries\upshape}
+\renewcommand{\cftsecpagefont}{\rmfamily\mdseries\upshape} % No bold!
+
+%%% END Article customizations
+
+%%% The "real" document content comes below... %%%
+
+\title{Proving Pascal's Triangle}
+\author{Ethan Schaffer}
+\date{Due 11/11/16}
+\newcommand\tab[1][1cm]{\hspace*{#1}}
+
+\begin{document}
+\maketitle
+\section* {Problem}
+\textit{By another choice of x and y in The Binomial Theorem, show why}
+\begin{equation}
+({n\atop 0}) - ({n\atop 1}) + ({n\atop 2}) - ... \pm ({n\atop n-1}) \mp ({n\atop n}) = 0
+\end{equation}
+\section*{Solution}
+\tab When n is even, the reasoning is pretty simple. Every term that is positive will have it's opposite ($n \atop p$'s opposite would be $n \atop {n-p}$) cancel out with it. As such, the eventual sum would be 0.
+\\ \tab When n is odd, the discussion gets more complicated. I found that the cancelation still works out according to \textit{Formula 1}, but I can't find anything that really shows it. If I reach an epiphany before class starts tomorrow, it will be below:
+
+\newpage
+
+\section*{Problem (2)}
+\textit{Prove $n \atop k$ is equal to the sum of $n-1 \atop k$ and $n-1 \atop k-1$.}
+
+\section* {Solution (2)}
+\tab To understand this problem, we have to look at it like an `or' question. If we can prove that every scenario not counted by $n-1 \atop k$ that is part of $n \atop k$ is within $n-1 \atop k-1$, and that there are no duplicates, I will have proven that$n \atop k$ = $n-1 \atop k$ + $n-1 \atop k-1$. To think about this problem, I chose to think about the problem as a binary problem. We can think about each n choose k as a binary set of ones and zeroes. $n-1 \atop k$ would be how many sets there are for which we would have to add a zero to the end of the set (because it has a size of n-1), and $n-1 \atop k-1$ would be how many sets there are for which we would have to add a one to the end of the set. We know this because when we still choose k we can't add any more `on' values, and when we have one k too little we need to add one more to have k `ons' in our final set.
+\\ \tab I already know that the only valid values are zero and one, so the sum of the posibilities it is each of those things must be equal to $n \atop k$.
+
+\section* {Analysis}
+I felt like the second problem we had to solve was much more interesting than the first, especially because the explanation the textbook had for 2.3.25 wasn't very good. 
+
+\section* {Status}
+I feel like I understand the second problem very well, but the first one is still a bit confusing.
+
+\section* {MVP}
+I have no MVP for this problem
+\end{document}
