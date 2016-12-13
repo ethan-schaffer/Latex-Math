@@ -1,0 +1,80 @@
+% !TEX TS-program = pdflatex
+% !TEX encoding = UTF-8 Unicode
+
+% This is a simple template for a LaTeX document using the "article" class.
+% See "book", "report", "letter" for other types of document.
+
+\documentclass[11pt]{article} % use larger type; default would be 10pt
+
+\usepackage[utf8]{inputenc} % set input encoding (not needed with XeLaTeX)
+
+%%% Examples of Article customizations
+% These packages are optional, depending whether you want the features they provide.
+% See the LaTeX Companion or other references for full information.
+
+%%% PAGE DIMENSIONS
+\usepackage{geometry} % to change the page dimensions
+\geometry{a4paper} % or letterpaper (US) or a5paper or....
+% \geometry{margin=2in} % for example, change the margins to 2 inches all round
+% \geometry{landscape} % set up the page for landscape
+%   read geometry.pdf for detailed page layout information
+
+\usepackage{graphicx} % support the \includegraphics command and options
+
+% \usepackage[parfill]{parskip} % Activate to begin paragraphs with an empty line rather than an indent
+
+%%% PACKAGES
+\usepackage{tikz}
+\usepackage{booktabs} % for much better looking tables
+\usepackage{color} % Added by me
+\usepackage{array} % for better arrays (eg matrices) in maths
+\usepackage{paralist} % very flexible & customisable lists (eg. enumerate/itemize, etc.)
+\usepackage{verbatim} % adds environment for commenting out blocks of text & for better verbatim
+\usepackage{subfig} % make it possible to include more than one captioned figure/table in a single float
+% These packages are all incorporated in the memoir class to one degree or another...
+
+%%% HEADERS & FOOTERS
+\usepackage{fancyhdr} % This should be set AFTER setting up the page geometry
+\pagestyle{fancy} % options: empty , plain , fancy
+\renewcommand{\headrulewidth}{0pt} % customise the layout...
+\lhead{}\chead{}\rhead{}
+\lfoot{}\cfoot{\thepage}\rfoot{}
+
+%%% SECTION TITLE APPEARANCE
+\usepackage{sectsty}
+\allsectionsfont{\sffamily\mdseries\upshape} % (See the fntguide.pdf for font help)
+% (This matches ConTeXt defaults)
+
+%%% ToC (table of contents) APPEARANCE
+\usepackage[nottoc,notlof,notlot]{tocbibind} % Put the bibliography in the ToC
+\usepackage[titles,subfigure]{tocloft} % Alter the style of the Table of Contents
+\renewcommand{\cftsecfont}{\rmfamily\mdseries\upshape}
+\renewcommand{\cftsecpagefont}{\rmfamily\mdseries\upshape} % No bold!
+
+%%% END Article customizations
+
+%%% The "real" document content comes below... %%%
+
+\newcommand\tab[1][1cm]{\hspace*{#1}}
+
+\begin{document}
+
+\newpage \section*{Problem 50} Solve tan( $\theta$ ) = 1 for $\theta$ . 
+\textbf{Notation: sin( $\theta$ ) means (sin( $\theta$ ))n for all values of n except n = 
+-1. In the case of n =-1, this expression represents the inverse sine function to be defined later. The same rule applies for all six of the trigonometric functions.}
+\newpage \section*{Problem 51} Solve $cos^{2}$ ( $\theta$ )-1 = 0 for $\theta$ .
+\newpage \section*{Problem 52} Graph the cosecant function. 
+\newpage \section*{Problem 53 } Solve sin2(x)-sin(x) = 0 for x. 
+\newpage \section*{Problem 54} Solve 2$sin^{2}\frac{x}{2}$-3sin$\frac{x}{2}$+1 = 0 for x. 
+\newpage \section*{Problem 55} Krista is standing at the edge of a long straight beach when she sees Jared drowning. Assume that Jared is at a distance of 76 meters straight out from a point on the beach that is 380 meters from where Krista is standing. Assume that Krista can run at 6.5 meters per second and swim at 1.4 meters per second. Krista runs down the beach toward Jared to a point P on the beach, and then dives into the water and swims to Jared. The angle at the point P between the beach and the line from P to Jared has a measure of 77 degrees. How long does it take Krista to save Jared? Could she have saved him faster by taking a different path?
+\newpage \section*{Problem 56}  Graph cotangent, and list its domain and range.
+\newpage \section*{Problem 57} Solve cot($\theta$) $>$ 0 for $\theta$
+\newpage \section*{Problem 58} Graph the function defined by f(x) = 3-2sin(2x+$\pi$ ).
+\newpage \section*{Problem 59} Write an essay addressing how you expect to use mathematics after leaving the university.
+\newpage \section*{Problem 60} Let S be a square, let M and N be the midpoints of two adjacent sides, and let V be the corner of the square that is opposite both M and N. Let $\theta$ be the measure of the angle between the two lines connecting M and N with V. Compute sin( $\theta$ ). 
+\newpage \section*{Problem 61} Graph the function defined by f(x) =-2+4cos($\pi$ x+ $\frac{\pi}{4}$. 
+\newpage \section*{Problem 62} Solve 2sin(4x)-$\sqrt{3}$ = 0 for x.
+\newpage \section*{Problem 63} A plane passes directly over your head at an altitude of 500 feet. Two seconds later, you observe that the angle of elevation of the plane is 42 degrees. What is the plane’s average speed over those 2 seconds? 
+\newpage  \section*{Problem 64} Solve 2sinx$\frac{x}{3}$+1 = 0 for x.
+
+\end{document}

@@ -1,0 +1,79 @@
+% !TEX TS-program = pdflatex
+% !TEX encoding = UTF-8 Unicode
+
+% This is a simple template for a LaTeX document using the "article" class.
+% See "book", "report", "letter" for other types of document.
+
+\documentclass[11pt]{article} % use larger type; default would be 10pt
+
+\usepackage[utf8]{inputenc} % set input encoding (not needed with XeLaTeX)
+
+%%% Examples of Article customizations
+% These packages are optional, depending whether you want the features they provide.
+% See the LaTeX Companion or other references for full information.
+
+%%% PAGE DIMENSIONS
+\usepackage{geometry} % to change the page dimensions
+\geometry{a4paper} % or letterpaper (US) or a5paper or....
+% \geometry{margin=2in} % for example, change the margins to 2 inches all round
+% \geometry{landscape} % set up the page for landscape
+%   read geometry.pdf for detailed page layout information
+
+\usepackage{graphicx} % support the \includegraphics command and options
+
+% \usepackage[parfill]{parskip} % Activate to begin paragraphs with an empty line rather than an indent
+
+%%% PACKAGES
+\usepackage{tikz}
+\usepackage{booktabs} % for much better looking tables
+\usepackage{color} % Added by me
+\usepackage{array} % for better arrays (eg matrices) in maths
+\usepackage{paralist} % very flexible & customisable lists (eg. enumerate/itemize, etc.)
+\usepackage{verbatim} % adds environment for commenting out blocks of text & for better verbatim
+\usepackage{subfig} % make it possible to include more than one captioned figure/table in a single float
+% These packages are all incorporated in the memoir class to one degree or another...
+
+%%% HEADERS & FOOTERS
+\usepackage{fancyhdr} % This should be set AFTER setting up the page geometry
+\pagestyle{fancy} % options: empty , plain , fancy
+\renewcommand{\headrulewidth}{0pt} % customise the layout...
+\lhead{}\chead{}\rhead{}
+\lfoot{}\cfoot{\thepage}\rfoot{}
+
+%%% SECTION TITLE APPEARANCE
+\usepackage{sectsty}
+\allsectionsfont{\sffamily\mdseries\upshape} % (See the fntguide.pdf for font help)
+% (This matches ConTeXt defaults)
+
+%%% ToC (table of contents) APPEARANCE
+\usepackage[nottoc,notlof,notlot]{tocbibind} % Put the bibliography in the ToC
+\usepackage[titles,subfigure]{tocloft} % Alter the style of the Table of Contents
+\renewcommand{\cftsecfont}{\rmfamily\mdseries\upshape}
+\renewcommand{\cftsecpagefont}{\rmfamily\mdseries\upshape} % No bold!
+
+%%% END Article customizations
+
+%%% The "real" document content comes below... %%%
+
+\title{Bill's Flooded Street}
+\author{Ethan Schaffer}
+\date{Due 11/29/16}
+\newcommand\tab[1][1cm]{\hspace*{#1}}
+
+\begin{document}
+\maketitle
+\section* {Problem}
+\textit{How many ways can Bill walk to work if he lives 10 blocks south and 8 blocks west of where he works if the east-west block which is 4 blocks north of his house and between 2 and 3 blocks east of his house is flooded by the creek?}
+
+\section*{Solution}
+I chose to follow the problem's hint, and calculated how many walks Bill could take without the flood, and then how many of those paths are blocked by the creek. I know that Bill can either go North or East at every intersection, so he has ($18 \atop 10$) paths he could take, if every road was open. However, because one of the roads isn't open, we have to subtract every route that has that road from ($18 \atop 11$), in order to calculate how many routes Bill \textit{can} take. 
+\\  \tab To calculate that, I multiplied that number of ways Bill could get to the broken road, and the number of ways he could make it to work from the other side of the broken road. He could from any point to any other point in ($r \atop n$) ways, where r is the number of roads Bill has to cross and n is the number that go North. (n can also be the numer of times he goes east, as ($n \atop k$) = ($n \atop n-k$). Based on this, I know that Bill can make it to the flooded road in ($6 \atop 4$) ways, because there are 5 roads and he must go north 3 times. Then, he would have to go East to cross the flooded road, so I will find how many ways he could make it back to work. That number is ($11 \atop 6$). This is because there are 11 roads for Bill to cross, and he must go north 6 times. 
+\\ \tab So, I can conclude that ($6 \atop4$)*($11 \atop 6$) is the number of ways Bill can no longer walk to work. As such, I can conclude that ($18 \atop 10$) - ($6 \atop4$)*($11 \atop 6$) is the number of ways Bill can walk to work now. That number, based on the knowledge that ($n \atop k$) = $\frac{n!}{k!(n-k)!}$, is 36828.
+
+\section* {Analysis}This problem was not particularly interesting, and I found solving it boring. I really like the idea of the problem, however, and hope we can apply the concepts we discuss in other problems this unit.
+
+\section* {Status} I feel that I fully underestand this problem
+
+\section* {MVP} I have no MVP for this problem
+
+\end{document}
